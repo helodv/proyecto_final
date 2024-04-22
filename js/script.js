@@ -20,14 +20,14 @@ class Producto {
 // array PRODUCTOS
 const productos = [
     // id, producto, marca, modelo, categoria, stock, precio
-    new Producto(1, `Mother MSI B450 AM4 Gaming Max`, `msi`, `b450 Gaming Max`, `motherboard`, 2, 76000),
-    new Producto(2, `Motherboard ASUS Prime B450M-A`, `msi`, `Prime B450M-A`, `motherboard`, 5, 85000),
-    new Producto(3, `Tarjeta gráfica NVIDIA GeForce RTX 3060`, `nvidia`, `GeForce RTX 3060`, `tarjeta gráfica`, 3, 450000),
-    new Producto(4, `SSD Kingston A2000 1TB NVMe`, `kingston`, `A2000`, `almacenamiento`, 8, 120000),
-    new Producto(5, `Monitor LG 27GL83A-B`, `lg`, `27GL83A-B`, `monitor`, 4, 320000)
+    new Producto(1, `Mother MSI B450 AM4 Gaming Max`, `msi`, `b450 Gaming Max`, `motherboard`, 2, 7600),
+    new Producto(2, `Motherboard ASUS Prime B450M-A`, `asus`, `Prime B450M-A`, `motherboard`, 5, 8500),
+    new Producto(3, `Tarjeta gráfica NVIDIA GeForce RTX 3060`, `nvidia`, `GeForce RTX 3060`, `tarjeta gráfica`, 3, 4500),
+    new Producto(4, `SSD Kingston A2000 1TB NVMe`, `kingston`, `A2000`, `almacenamiento`, 8, 12550),
+    new Producto(5, `Monitor LG 27GL83A-B`, `lg`, `27GL83A-B`, `monitor`, 4, 149499)
 ];
 
-// CREAR UN PRODUCTO NUEVO y Agregarlo al array
+// CREAR UN PRODUCTO NUEVO y LO AGREGA AL ARRAY
 function crearProducto() {
     const nombre = prompt(`Ingrese el nombre del producto\nejemplo: Procesador AMD Ryzen 7 5700 AM2`).toLowerCase();
     const marca = prompt(`Ingrese la marca del producto`).toLowerCase();
@@ -52,7 +52,7 @@ function crearProducto() {
 }
 
 // LISTA TODOS LOS PRODUCTOS
-function listarTodo(arr) {
+function listarProductos(arr) {
     arr.forEach((el) => {
         console.log(`ID: ${el.id}`);
         console.log(`Producto: ${el.nombre}`);
@@ -60,18 +60,19 @@ function listarTodo(arr) {
         console.log(`Modelo: ${el.modelo}`);
         console.log(`Categoría: ${el.categoria}`);
         console.log(`Stock: ${el.stock}`);
-        console.log(`Precio: $${el.precio}\n\n`);
+        console.log(`Precio: $${el.precio}\n`);
     });
 }
 
 // BUSCAR PRODUCTO
+// recibe array donde se busca, elemento del array donde se hace la busqueda, y la busqueda
 function buscarProducto(arr, propiedad, busqueda) {
-    const resultado = arr.filter((producto) => producto[propiedad].includes(busqueda));
+    const resultado = arr.filter((producto) => producto[propiedad].toLowerCase().includes(busqueda.toLowerCase()));
     if (resultado.length === 0) {
         alert(`No se encontraron productos.`);
     } else {
         const mensajeResultado = resultado.map((producto) =>
-            `\n
+            `
             ID: ${producto.id}
             Producto: ${producto.nombre}
             Marca: ${producto.marca}
@@ -83,10 +84,62 @@ function buscarProducto(arr, propiedad, busqueda) {
     }
 }
 
-/* let busca = prompt('ingrese la busqueda') */
+// LISTAR PRODUCTOS POR PRECIO
 
 
-listarTodo(productos)
+forma = `des`
+
+
+ListarPorPrecio(productos, `precio`, forma)
+
+
+function ListarPorPrecio(arr, propiedad, forma){
+    if (forma === `asc`){
+        const listar = arr.sort((a, b) => {
+            if(a[propiedad] > b[propiedad]){
+                return 1
+            }
+            if(a[propiedad] < b[propiedad]){
+                return -1
+            }
+        })
+        console.log(listar)
+    }
+    if (forma === `des`){
+        const listar = arr.sort((a, b) => {
+            if(a[propiedad] > b[propiedad]){
+                return -1
+            }
+            if(a[propiedad] < b[propiedad]){
+                return 1
+            }
+        })
+        console.log(listar)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// EJECUCION -----------------------------------------------------
+/* let busca = prompt(`buscar`)// se invoca la funcion, con el array, elemento del array y busqueda realizada
+
+
+buscarProducto(productos, `nombre`, `mother`) */
+
+/* precioMenorMayor(productos) */
 
 
 
