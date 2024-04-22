@@ -36,9 +36,9 @@ let listaUsuarios = [
 
 // array PRODUCTOS
 let listaProductos = [
-    // id, producto, marca, modelo, categoria, stock, precio
-    new Producto(1, 'Mother MSI B450 AM4 Gaming Max', 'msi', 'b450 Gaming Max', 'motherboard', 2, 76000),
-    new Producto(2, 'Motherboard ASUS Prime B450M-A', 'ASUS', 'Prime B450M-A', 'motherboard', 5, 85000),
+    // id, producto, marca, modelo, categoria, stock, precio, imagenUno, imagenDos
+    new Producto(1, 'Mother MSI B450 AM4 Gaming Max', 'msi', 'b450 Gaming Max', 'motherboard', 2, 76000, '../assets/images/mb_msi_b45_gaming_max.png'),
+    new Producto(2, 'Motherboard ASUS Prime B450M-A', 'ASUS', 'Prime B450M-A', 'motherboard', 5, 85000,),
     new Producto(3, 'Tarjeta gráfica NVIDIA GeForce RTX 3060', 'NVIDIA', 'GeForce RTX 3060', 'tarjeta gráfica', 3, 450000),
     new Producto(4, 'SSD Kingston A2000 1TB NVMe', 'Kingston', 'A2000', 'almacenamiento', 8, 120000),
     new Producto(5, 'Monitor LG 27GL83A-B', 'LG', '27GL83A-B', 'monitor', 4, 320000)
