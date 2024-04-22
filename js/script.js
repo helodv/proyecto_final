@@ -86,9 +86,7 @@ function buscarProducto(arr, propiedad, busqueda) {
 
 // LISTAR PRODUCTOS POR PRECIO
 
-
-forma = `des`
-
+forma = `desc`
 
 ListarPorPrecio(productos, `precio`, forma)
 
@@ -105,7 +103,7 @@ function ListarPorPrecio(arr, propiedad, forma){
         })
         console.log(listar)
     }
-    if (forma === `des`){
+    if (forma === `desc`){
         const listar = arr.sort((a, b) => {
             if(a[propiedad] > b[propiedad]){
                 return -1
